@@ -1,4 +1,4 @@
-<style src='./assets/less/reset.less' lang="less"></style>
+<style src='./assets/less/ran.less' lang="less"></style>
 <template>
   <div id="app">
     <router-view></router-view>

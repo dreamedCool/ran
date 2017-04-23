@@ -1,0 +1,74 @@
+.container {
+    width: 10rem;
+    background: fff;
+    .tab {
+      height: 148/75rem;
+      display: flex;
+      justify-content: space-around;
+      .per-tab {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .icon {
+          font-size: 54/75rem;
+        }
+        span {
+          font-size: 24/75rem;
+        }
+      }
+    }
+    .life {
+      background: #f8f8f7;
+      padding: 0 32/75rem;
+      .life-title {
+        padding: 64/75rem 0 32/75rem 0;
+        display: flex;
+        justify-content: space-between;
+        h3 {
+          font-size: 36/75rem;
+          font-family: bold;
+        }
+        .more {
+          color: #919191;
+        }
+      }
+      .life-detail-wrapper {
+        height: 486/75rem;
+        background: gold;
+        position: relative;
+        .life-detail-name {
+          position: absolute;
+          top: 32/75rem;
+          left: 32/75rem;
+          font-weight: bold;
+        }
+        .life-detail-english {
+          position: absolute;
+          top: 32/75rem;
+          left: 128/75rem;
+        }
+        .life-detail-store {
+          position: absolute;
+          top: 22/75rem;
+          right: 28/75rem;
+          font-size: 48/75rem;
+          color: #ff3366;
+        }
+        .pic-name {
+          position: absolute;
+          bottom: 72/75rem;
+          left: 32/75rem;
+          font-size: 32/75rem;
+          font-weight: bold;
+        }
+        .pic-price {
+          position: absolute;
+          bottom: 24/75rem;
+          left: 32/75rem;
+          font-size: 36/75rem;
+          color: #ff3366;
+        }
+      }
+    }
+}

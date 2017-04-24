@@ -1,6 +1,6 @@
 .container {
     width: 10rem;
-    background: fff;
+    background: #fff;
     .tab {
       height: 148/75rem;
       display: flex;
@@ -18,24 +18,24 @@
         }
       }
     }
+    .title {
+      padding: 64/75rem 0 32/75rem 0;
+      display: flex;
+      justify-content: space-between;
+      h3 {
+        font-size: 36/75rem;
+        font-family: bold;
+      }
+      .more {
+        color: #919191;
+      }
+    }
     .life {
       background: #f8f8f7;
       padding: 0 32/75rem;
-      .life-title {
-        padding: 64/75rem 0 32/75rem 0;
-        display: flex;
-        justify-content: space-between;
-        h3 {
-          font-size: 36/75rem;
-          font-family: bold;
-        }
-        .more {
-          color: #919191;
-        }
-      }
       .life-detail-wrapper {
         height: 486/75rem;
-        background: gold;
+        margin-bottom: 12/75rem;
         position: relative;
         .life-detail-name {
           position: absolute;
@@ -68,6 +68,35 @@
           left: 32/75rem;
           font-size: 36/75rem;
           color: #ff3366;
+        }
+        .pic-date {
+          position: absolute;
+          bottom: 24/75rem;
+          left: 280/75rem;
+        }
+        .pic-address {
+          position: absolute;
+          bottom: 24/75rem;
+          right: 28/75rem;
+        }
+      }
+    }
+    .artist {
+      padding: 0 32/75rem;
+      .focus {
+        width: 432/75rem;
+        height: 432/75rem;
+        background: lightskyblue;
+        .people-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .portrait {
+            width: 84/75rem;
+            height: 84/75rem;
+            border-radius: 42/75rem;
+            background: pink;
+          }
         }
       }
     }

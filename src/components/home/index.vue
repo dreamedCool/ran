@@ -52,14 +52,57 @@
             </div>
           </div>
           <div class="focus">
-            <div class='people-info'>
-              <div class="portrait"></div>
-              <span>陈文夏</span>
+            <div class="focus-wrapper">
+              <div class='people-info' v-for='item in artist'>
+                <div class="p-portrait" :style="{backgroundImage: 'url('+item.url+')'}">
+                </div>
+                <span class="p-name">{{item.name}}</span>
+                <p class="p-desc">{{item.desc}}</p>
+                <div class="fans-activity">
+                  <span>粉丝 {{item.fans}}</span> |
+                  <span>活动 {{item.activity}}</span>
+                </div>
+                <div class="p-works">
+                  <img v-for="i in item.works" :src="i"/>
+                </div>
+                <div class="focus-btn not-focus">+关注</div>
+              </div>
             </div>
-            <div class='people-info'>
-              <div class="portrait"></div>
-              <span>陈文夏</span>
+          </div>
+        </div>
+        <div class="special-topic">
+          <div class="title">
+            <h3>燃专题</h3>
+            <div class="more">
+              <span>更多</span>
+              <i class="icon i-more"></i>
             </div>
+          </div>
+          <div class="special-detail">
+            <div class="special-detail-pic" v-for="item in topic"
+            :style="{backgroundImage: 'url('+item+')'}"></div>
+          </div>
+        </div>
+        <div class="circle">
+          <div class="title">
+            <h3>圈子精选</h3>
+            <div class="more">
+              <span>更多</span>
+              <i class="icon i-more"></i>
+            </div>
+          </div>
+          <div class="circle-detail" v-for="item in circle">
+              <div class="p-portrait" 
+               :style="{backgroundImage: 'url('+item.headUrl+')'}">
+              </div>
+              <div class="p-info">
+                <span>{{item.name}}</span>
+                <div class="circle-p-time">
+                  <i class="icon i-time"></i>
+                  <span>{{item.time}}</span>
+                </div>
+              </div>
+              <div>你画你拍</div>
           </div>
         </div>
     </div>
@@ -90,6 +133,50 @@
             price: 322,
             date: '2017.02.02',
             address: '北京三里屯'
+          }
+        ],
+        artist: [
+          {
+            url: 'static/head.jpg',
+            name: '陈文夏',
+            desc: '手绘画家、撰稿人、都市文艺实践者',
+            fans: 321,
+            activity: 18,
+            works: [
+              'static/1.jpg', 'static/2.jpg', 'static/3.jpg'
+            ]
+          },
+          {
+            url: 'static/head.jpg',
+            name: '陈文夏',
+            desc: '手绘画家、撰稿人、都市文艺实践者',
+            fans: 321,
+            activity: 18,
+            works: [
+              'static/1.jpg', 'static/2.jpg', 'static/3.jpg'
+            ]
+          },
+          {
+            url: 'static/head.jpg',
+            name: '陈文夏',
+            desc: '手绘画家、撰稿人、都市文艺实践者',
+            fans: 321,
+            activity: 18,
+            works: [
+              'static/1.jpg', 'static/2.jpg', 'static/3.jpg'
+            ]
+          }
+        ],
+        topic: [
+          'static/topic.jpg', 'static/topic2.jpg'
+        ],
+        circle: [
+          {
+            headUrl: 'static/head.jpg',
+            name: 'Michale W',
+            time: '三小时前',
+            label: ['丙烯画', '燃布画'],
+            discuss: '昨夜西风凋碧树的感觉。。。'
           }
         ]
       }

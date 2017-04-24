@@ -92,6 +92,7 @@
             </div>
           </div>
           <div class="circle-detail" v-for="item in circle">
+            <div class="circle-detail-info">
               <div class="p-portrait" 
                :style="{backgroundImage: 'url('+item.headUrl+')'}">
               </div>
@@ -103,6 +104,10 @@
                 </div>
               </div>
               <div>你画你拍</div>
+            </div>
+            <div class="circle-picture"
+            :style="{backgroundImage: 'url('+item.pictureUrl+')'}"
+            ></div>
           </div>
         </div>
     </div>
@@ -175,6 +180,7 @@
             headUrl: 'static/head.jpg',
             name: 'Michale W',
             time: '三小时前',
+            pictureUrl: 'static/circle.jpg',
             label: ['丙烯画', '燃布画'],
             discuss: '昨夜西风凋碧树的感觉。。。'
           }

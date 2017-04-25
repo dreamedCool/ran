@@ -22,6 +22,9 @@
         this.$http.post('http://dev.artful.com.cn/api/artful/events/booking', params).then((res) => {
           console.log(res)
         })
+      },
+      ajaxRequest() {
+        
       }
     }
   }

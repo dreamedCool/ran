@@ -24,12 +24,12 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8080,
-    autoOpenBrowser: true,
+    autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       '/lw': {
-            target: 'https://www.getpostman.com/',
+            target: 'http://dev.artful.com.cn/wx/api/',
             changeOrigin: true,
             pathRewrite: {
               '^/lw': ''

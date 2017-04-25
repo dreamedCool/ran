@@ -26,12 +26,9 @@
     },
     methods: {
       getAjax () {
-        this.$http.get('/lw/collections/094c9ec162967dc3c4c2').then((res) => {
+        this.$http.get('/lw/home').then((res) => {
           console.log(res)
         })
-      },
-      ajaxRequest() {
-        
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>活动</div>
+  <p>活动</p>
 </template>
 <script>
 

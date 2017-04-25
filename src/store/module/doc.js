@@ -50,8 +50,8 @@ const actions = {
   hideNav ({ commit }) {
     commit(HIDE_NAV)
   },
-  toggleNav ({ commit }) {
-    commit(TOGGLE_NAV)
+  toggleNav ({ commit }, navs, nav) {
+    commit(TOGGLE_NAV, navs, nav)
   }
 }
 export default {

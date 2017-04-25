@@ -1,7 +1,7 @@
 <style src='./less/index.less' lang="less" scoped></style>
 <template>
     <div class="container">
-        <banner></banner>
+        <Banner></Banner>
         <template>
           <div class="tab">
             <div class="per-tab">
@@ -18,37 +18,28 @@
             </div>
           </div>
         </template>
-        <div class="life">
-          <div class="life-title">
-            <h3>燃活动</h3>
-            <div class="more">
-              <span>更多</span>
-              <i class="icon i-more"></i>
-            </div>
-          </div>
-          <div class="life-detail-wrapper">
-            <span class="life-detail-name">燃画布</span>
-            <span class="life-detail-english">MYCANVAS</span>
-            <i class="icon i-store life-detail-store"></i>
-            <span class="pic-name">油画.回眸</span>
-            <em class="pic-price">￥299</em>
-            <div class="pic-date">
-              <i class="icon i-date"></i>
-              <time>2017-02-02</time>
-            </div>
-          </div>
+        <div id="detail">
+          <Life></Life>
+          <Artist></Artist>
+          <Topic></Topic>
+          <Circles></Circles>
         </div>
     </div>
 </template>
 <script>
-  import banner from './child/banner'
+  import Banner from './child/banner'
+  import Life from './child/activity'
+  import Artist from './child/artist'
+  import Topic from './child/topic'
+  import Circles from './child/circles'
   export default {
     name: 'test',
     data () {
-      return {}
+      return {
+      }
     },
     components: {
-      banner
+      Banner, Life, Artist, Topic, Circles
     },
     mounted () {
       let data = this.$m.mock({

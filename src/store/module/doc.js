@@ -2,7 +2,8 @@ import {
   SHOW_NAV,
   HIDE_NAV,
   TOGGLE_NAV,
-  SET_HEADER
+  SET_HEADER,
+  SET_DEFAULTHEADER
 } from '../mutation_types'
 const state = {
   navInfo: {
@@ -32,6 +33,7 @@ const state = {
   header: {
     title: '',
     back: {
+      visible: false,
       callback: null
     },
     btn: {
@@ -56,6 +58,11 @@ const mutations = {
   },
   [SET_HEADER] (state, info) {
     state.header = info
+  },
+  [SET_DEFAULTHEADER] (state) {
+    state.header = {
+      title: ''
+    }
   }
 }
 const actions = {
@@ -70,6 +77,9 @@ const actions = {
   },
   setHeader ({ commit }, data) {
     commit(SET_HEADER, data)
+  },
+  setDefaultHeader ({ commit }) {
+    commit(SET_DEFAULTHEADER)
   }
 }
 export default {

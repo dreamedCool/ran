@@ -1,11 +1,13 @@
 <style lang="less" src="./less/header.less" scoped></style>
 <template>
-  <div class="wrapper">
-    <a>
-      <i class="icon i-back back"></i>
-    </a>
-    <span class="center">{{state.title}}</span>
-    <a class="right">{{state.btn.text}}</a>
+  <div class="=container" v-if="state.title !==''">
+    <div class="wrapper">
+      <a @click='goback'>
+        <i class="icon i-back back"></i>
+      </a>
+      <span class="center">{{state.title}}</span>
+      <a class="right">{{state.btn.text}}</a>
+    </div>
   </div>
 </template>
 <script>
@@ -18,6 +20,17 @@
     },
     computed: {
       ...mapState({state: ({doc}) => doc.header})
+    },
+    mounted () {
+    },
+    methods: {
+      goback () {
+        if (this.state.back.callback) {
+          this.state.back.callback()
+        } else {
+          window.history.go(-1)
+        }
+      }
     }
   }
 </script>

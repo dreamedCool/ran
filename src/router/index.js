@@ -32,8 +32,10 @@ const router = new Router({
 router.afterEach((route) => {
   const arr = ['index', 'activity', 'personal']
   let i = arr.indexOf(route.name)
-  if (route.meta.hader.require) {
+  if (route.meta.header.require) {
     doc.actions.setHeader(store, route.meta.header)
+  } else {
+    doc.actions.setDefaultHeader(store)
   }
   if (route.meta.footer && route.meta.footer.require) {
     doc.actions.showNav(store)

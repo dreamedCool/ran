@@ -1,3 +1,4 @@
+
 export default [
   {
     path: '/register',
@@ -5,10 +6,12 @@ export default [
     meta: {
       header: {
         require: true,
-        title: '绑定手机',
+        title: '注册',
+        back: {
+          visible: true
+        },
         btn: {
-          visible: true,
-          text: '跳过'
+          visible: false
         }
       },
       footer: {

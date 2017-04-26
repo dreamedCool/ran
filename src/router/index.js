@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import doc from '../store/module/doc'
 import store from '../store/store'
-import activity from './activity'
+import Activity from './activity'
+import User from './user'
 Vue.use(Router)
 
 const router = new Router({
@@ -12,6 +13,9 @@ const router = new Router({
       name: 'index',
       component: (resolve) => require(['../components/home/index.vue'], resolve),
       meta: {
+        header: {
+          require: false
+        },
         footer: {
           require: true
         }
@@ -21,12 +25,16 @@ const router = new Router({
       path: '/',
       redirect: '/index'
     },
-    ...activity
+    ...Activity,
+    ...User
   ]
 })
 router.afterEach((route) => {
   const arr = ['index', 'activity', 'personal']
   let i = arr.indexOf(route.name)
+  if (route.meta.hader.require) {
+    doc.actions.setHeader(store, route.meta.header)
+  }
   if (route.meta.footer && route.meta.footer.require) {
     doc.actions.showNav(store)
     doc.actions.toggleNav(store, store.state.doc.navInfo.navs[i])

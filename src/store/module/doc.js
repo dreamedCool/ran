@@ -1,7 +1,8 @@
 import {
   SHOW_NAV,
   HIDE_NAV,
-  TOGGLE_NAV
+  TOGGLE_NAV,
+  SET_HEADER
 } from '../mutation_types'
 const state = {
   navInfo: {
@@ -27,6 +28,17 @@ const state = {
       }
 
     ]
+  },
+  header: {
+    title: '',
+    back: {
+      callback: null
+    },
+    btn: {
+      visible: false,
+      text: '',
+      callback: null
+    }
   }
 }
 const mutations = {
@@ -41,6 +53,9 @@ const mutations = {
       ele.active = false
     }
     nav.active = true
+  },
+  [SET_HEADER] (state, info) {
+    state.header = info
   }
 }
 const actions = {
@@ -52,6 +67,9 @@ const actions = {
   },
   toggleNav ({ commit }, navs, nav) {
     commit(TOGGLE_NAV, navs, nav)
+  },
+  setHeader ({ commit }, data) {
+    commit(SET_HEADER, data)
   }
 }
 export default {

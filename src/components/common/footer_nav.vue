@@ -18,6 +18,7 @@
     computed: mapState({navInfo: ({doc}) => doc.navInfo}),
     methods: {
       jump (route) {
+        console.log(route)
         this.$router.push({
           name: route
         })

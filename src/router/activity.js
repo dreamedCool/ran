@@ -1,3 +1,4 @@
+// import activity from '@/components/activity/activity.vue'
 export default [
   {
     path: '/activity',

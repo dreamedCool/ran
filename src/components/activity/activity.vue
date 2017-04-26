@@ -1,5 +1,6 @@
+<style lang="less" src="./less/activity.less" scoped></style>
 <template>
-  <p>活动</p>
+  <div class="container">活动</div>
 </template>
 <script>
 

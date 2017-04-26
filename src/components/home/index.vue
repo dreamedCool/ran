@@ -42,10 +42,6 @@
       Banner, Life, Artist, Topic, Circles
     },
     mounted () {
-      let data = this.$m.mock({
-        'string|3': '★★★'
-      })
-      console.log(data)
     },
     methods: {
     }

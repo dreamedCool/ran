@@ -2,11 +2,21 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import doc from '../store/module/doc'
 import store from '../store/store'
-import activity from './activity'
+// import activity from './activity'
 Vue.use(Router)
 
 const router = new Router({
   routes: [
+    {
+      path: '/activity',
+      name: 'activity',
+      components: (resolve) => require(['../components/activity/activity.vue'], resolve),
+      meta: {
+        footer: {
+          require: true
+        }
+      }
+    },
     {
       path: '/index',
       name: 'index',
@@ -20,12 +30,12 @@ const router = new Router({
     {
       path: '/',
       redirect: '/index'
-    },
-    ...activity
+    }
+    // ...activity
   ]
 })
 router.afterEach((route) => {
-  let arr = ['index', 'activity', 'personal']
+  const arr = ['index', 'activity', 'personal']
   let i = arr.indexOf(route.name)
   if (route.meta.footer && route.meta.footer.require) {
     doc.actions.showNav(store)

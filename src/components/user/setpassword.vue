@@ -3,12 +3,6 @@
 <template>
   <div class="wrapper">
     <div class='form-wrapper'>
-        <div class="tel">
-          <input type="number" :value='tel' readonly="true"/>
-        </div>
-        <div class="code">
-          <input type="number" :value='code' readonly="true"/>
-        </div>
         <div class="pwd">
           <input type="text" placeholder="设置密码" v-model="pwd.val"/>
           <i class="icon i-close close" @click='close' 
@@ -17,7 +11,7 @@
     </div>
     <div class="btn">
       <p class="error-tip" >不正确</p>
-      <input type="button" class="next" value="注册" @click='next'/>
+      <input type="button" class="next" value="下一步" @click='next'/>
     </div>
     <div class="agreement">注册登录代表同意用户协议</div>
   </div>
@@ -49,6 +43,9 @@
         this.pwd.val = ''
       },
       next () {
+        this.$router.push({
+          name: 'personal'
+        })
       }
     }
   }

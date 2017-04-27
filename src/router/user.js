@@ -26,7 +26,7 @@ export default [
     meta: {
       header: {
         require: true,
-        title: '注册',
+        title: '设置密码',
         back: {
           visible: true
         },

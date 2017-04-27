@@ -13,13 +13,17 @@
         v-model='code.val' v-on:blur='check(code)'
         :class="this.tip==='验证码'?'wrong':''"/>
         <i class="icon i-close close" @click='close(code)' v-show='code.val'></i>
-        <span class="validate" @click='sendMsg(tel)' v-show='!countState'>{{initShow}}</span>
+        <input type="button" class="validate" 
+         @click='sendMsg(tel)' 
+        v-show='!countState' :value='initShow' readonly="true">
         <span class="countdown" v-show='countState'>{{count}}s重新发送</span>
       </div>
     </div>
     <div class="btn">
-      <p class="error-tip" v-show='tip'>{{tip}}不正确</p>
-      <input type="button" class="next" value="下一步" @click="next()"/>
+      <p class="error-tip" v-show='tip'>{{tip}}</p>
+      <input type="button" class="next" 
+      :class="tip === '' ? 'can' : ''" value="下一步" @click="next()"
+      :disabled="tip === ''"/>
     </div>
     <div class="agreement">注册登录代表同意用户协议</div>
   </div>
@@ -39,7 +43,7 @@
           val: ''
         },
         initShow: '获取验证码',
-        tip: '',
+        tip: '0',
         count: 60,
         countState: false,
         time: ''
@@ -59,29 +63,43 @@
       check (data) {
         let result = validate(data)
         if (!result) {
-          this.tip = data.name
+          this.tip = data.name + '不正确'
+          console.log(this.tip)
           return
         } else {
           this.tip = ''
         }
       },
       sendMsg (tel) {
-        let result = validate(tel)
+        let result = validate(this.tel)
         if (!result) {
-          this.tip = tel.name
-        } else {
-          this.countState = true
-          this.time = setInterval(() => {
-            this.count--
-            if (this.count === 0) {
-              this.initShow = '重新发送'
-              this.countState = false
-              this.count = 60
-              clearInterval(this.time)
-            }
-          }, 1000)
-          this.getCheckNumber()
+          this.tip = '手机号码不正确'
+          return
         }
+        this.checkTel()
+      },
+      checkTel () {
+        this.$http.get('/lw/tels/' + this.tel.val + '/existed').then((res) => {
+          let resData = res.body
+          if (resData.errorCode === 0) {
+            if (resData.data.existed) {
+              this.tip = '手机号码已经注册'
+              return
+            } else {
+              this.countState = true
+              this.time = setInterval(() => {
+                this.count--
+                if (this.count === 0) {
+                  this.initShow = '重新发送'
+                  this.countState = false
+                  this.count = 60
+                  clearInterval(this.time)
+                }
+              }, 1000)
+             // this.getCheckNumber()
+            }
+          }
+        })
       },
       getCheckNumber () { // 获取验证码
         this.$http({

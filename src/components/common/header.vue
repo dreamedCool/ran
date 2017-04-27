@@ -1,12 +1,17 @@
 <style lang="less" src="./less/header.less" scoped></style>
+<style lang="less" scoped>
+
+</style>
 <template>
-  <div class="=container" v-if="state.title !==''">
-    <div class="wrapper">
+  <div class="container" v-if="state.title !==''">
+    <div>
       <a @click='goback'>
         <i class="icon i-back back"></i>
       </a>
-      <span class="center">{{state.title}}</span>
-      <a class="right">{{state.btn.text}}</a>
+    </div>
+    <h3 class="center">{{state.title}}</h3>
+    <div>
+      <a class="right" v-html='state.btn.text'></a>
     </div>
   </div>
 </template>

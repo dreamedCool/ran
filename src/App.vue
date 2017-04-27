@@ -1,6 +1,6 @@
 <style src='./assets/less/ran.less' lang="less"></style>
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <pub-head></pub-head>
     <router-view></router-view>
     <footer-nav></footer-nav>

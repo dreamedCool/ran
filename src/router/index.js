@@ -4,6 +4,7 @@ import doc from '../store/module/doc'
 import store from '../store/store'
 import Activity from './activity'
 import User from './user'
+import Personal from './personal'
 Vue.use(Router)
 
 const router = new Router({
@@ -26,7 +27,8 @@ const router = new Router({
       redirect: '/index'
     },
     ...Activity,
-    ...User
+    ...User,
+    ...Personal
   ]
 })
 router.afterEach((route) => {

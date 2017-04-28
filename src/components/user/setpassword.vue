@@ -4,13 +4,17 @@
   <div class="wrapper">
     <div class='form-wrapper'>
         <div class="pwd">
-          <input type="text" placeholder="设置密码" v-model="pwd.val"/>
+          <input type="text" id="password" placeholder="设置6位以上数字和字母密码" v-model="pwd.val"/>
           <i class="icon i-close close" @click='close' 
           v-show='pwd.val'></i>
+          <div class="pwd-iswatch">
+            <i class="icon i-password" v-if='isWatch' @click='toggle'></i>
+            <i class="icon i-passwordnot" v-else @click='toggle'></i>
+          </div>
         </div>
     </div>
     <div class="btn">
-      <p class="error-tip" >不正确</p>
+      <p class="error-tip" >{{tip}}</p>
       <input type="button" class="next" value="下一步" @click='next'/>
     </div>
     <div class="agreement">注册登录代表同意用户协议</div>
@@ -25,16 +29,12 @@
         pwd: {
           name: '密码',
           val: ''
-        }
+        },
+        tip: '',
+        isWatch: true
       }
     },
     computed: {
-      tel: function () {
-        return this.$route.query.tel
-      },
-      code: function () {
-        return this.$route.query.code
-      }
     },
     mounted () {
     },
@@ -46,6 +46,15 @@
         this.$router.push({
           name: 'personal'
         })
+      },
+      toggle () {
+        let passInput = document.getElementById('password')
+        this.isWatch = !this.isWatch
+        if (this.isWatch) {
+          passInput.type = 'text'
+        } else {
+          passInput.type = 'password'
+        }
       }
     }
   }

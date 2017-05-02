@@ -2,6 +2,7 @@
 <template>
   <div id="app" class="container">
     <pub-head></pub-head>
+    <tip></tip>
     <router-view></router-view>
     <footer-nav></footer-nav>
   </div>
@@ -9,11 +10,12 @@
 
 <script>
 import pubHead from './components/common/header'
+import tip from './components/common/tip'
 import footerNav from './components/common/footer_nav'
 export default {
   name: 'app',
   components: {
-    footerNav, pubHead
+    footerNav, pubHead, tip
   }
 }
 </script>

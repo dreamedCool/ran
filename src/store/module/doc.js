@@ -3,7 +3,8 @@ import {
   HIDE_NAV,
   TOGGLE_NAV,
   SET_HEADER,
-  SET_DEFAULTHEADER
+  SET_DEFAULTHEADER,
+  SET_TIP
 } from '../mutation_types'
 const state = {
   navInfo: {
@@ -41,6 +42,11 @@ const state = {
       text: '',
       callback: null
     }
+  },
+  tip: {
+    text: '',
+    time: 2000,
+    callback: null
   }
 }
 const mutations = {
@@ -63,6 +69,15 @@ const mutations = {
     state.header = {
       title: ''
     }
+  },
+  [SET_TIP] (state, info) {
+    if (!info.time) {
+      info.time = 2000
+    }
+    if (!info.text) {
+      throw new Error('该字段不能为空')
+    }
+    state.tip = info
   }
 }
 const actions = {
@@ -80,6 +95,9 @@ const actions = {
   },
   setDefaultHeader ({ commit }) {
     commit(SET_DEFAULTHEADER)
+  },
+  setTip ({ commit }, info) {
+    commit(SET_TIP, info)
   }
 }
 export default {

@@ -14,7 +14,6 @@
         </div>
     </div>
     <div class="btn">
-      <p class="error-tip" >{{tip}}</p>
       <input type="button" class="next" value="下一步" @click='next'/>
     </div>
     <div class="agreement">注册登录代表同意用户协议</div>
@@ -22,6 +21,7 @@
 </template>
 <script>
   // import validate from './validate.js'
+  import { mapActions } from 'vuex'
   export default {
     name: 'setpassword',
     data () {
@@ -39,6 +39,7 @@
     mounted () {
     },
     methods: {
+      ...mapActions(['setTip']),
       close () {
         this.pwd.val = ''
       },
@@ -48,12 +49,12 @@
         })
       },
       toggle () {
-        let passInput = document.getElementById('password')
+        let pwdInput = document.getElementById('password')
         this.isWatch = !this.isWatch
         if (this.isWatch) {
-          passInput.type = 'text'
+          pwdInput.type = 'text'
         } else {
-          passInput.type = 'password'
+          pwdInput.type = 'password'
         }
       }
     }

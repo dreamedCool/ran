@@ -5,13 +5,13 @@
       <div class="tel">
         <input type="number" placeholder="请输入手机号码"
         v-model='tel.val' v-on:blur='check(tel)'
-        :class="this.tip==='手机号码'?'wrong':''" maxlength="11"/>
+         maxlength="11"/>
         <i class="icon i-close close" @click='close(tel)' v-show='tel.val'></i>
       </div>
       <div class="code">
         <input type="number" placeholder="请输入验证码" 
         v-model='code.val' v-on:blur='check(code)'
-        :class="this.tip==='验证码'?'wrong':''"/>
+        />
         <i class="icon i-close close" @click='close(code)' v-show='code.val'></i>
         <input type="button" class="validate" 
          @click='sendMsg(tel)' 
@@ -20,7 +20,6 @@
       </div>
     </div>
     <div class="btn">
-      <p class="error-tip" v-show='tip'>{{tip}}</p>
       <input type="button" class="next" 
       :class="nextStatus ? 'can' : ''" value="下一步" @click="next()"
       :disabled="!nextStatus"/>
@@ -30,6 +29,7 @@
 </template>
 <script>
   import validate from './validate.js'
+  import { mapActions } from 'vuex'
   export default {
     name: 'register',
     data () {
@@ -43,7 +43,6 @@
           val: ''
         },
         initShow: '获取验证码',
-        tip: ' ', // 错误提示
         count: 60, // 验证码的发送时间
         countState: false, // 重新发送的状态
         time: '' // 定时器
@@ -51,7 +50,7 @@
     },
     computed: {
       nextStatus: function () {
-        if (this.tel.val && this.code.val && this.tip.trim() === '') {
+        if (this.tel.val && this.code.val) {
           return true
         } else {
           return false
@@ -61,6 +60,7 @@
     mounted () {
     },
     methods: {
+      ...mapActions(['setTip']),
       close (data) {
         if (data.name === '手机号码') {
           this.tel.val = ''
@@ -72,17 +72,18 @@
       check (data) {
         let result = validate(data)
         if (!result) {
-          this.tip = data.name + '不正确'
+          this.setTip({
+            text: data.name + '不正确'
+          })
           return false
-        } else {
-          this.tip = ''
-          return true
         }
       },
       sendMsg (tel) {
         let result = validate(this.tel)
         if (!result) {
-          this.tip = '手机号码不正确'
+          this.setTip({
+            text: '手机号码不正确'
+          })
           return
         }
         this.checkTel()
@@ -92,7 +93,9 @@
           let resData = res.body
           if (resData.errorCode === 0) {
             if (resData.data.existed) {
-              this.tip = '手机号码已经注册'
+              this.setTip({
+                text: '手机号码已经注册'
+              })
               return
             } else {
               this.countState = true
@@ -133,7 +136,9 @@
         }).then((res) => {
           let resData = res.data
           if (resData.errorCode !== 0) {
-            this.tip = resData.message
+            this.setTip({
+              text: resData.message
+            })
           } else {
             this.$router.push({
               name: 'setpassword'

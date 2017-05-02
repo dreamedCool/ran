@@ -4,8 +4,10 @@
   <div class="wrapper">
     <div class='form-wrapper'>
         <div class="pwd">
-          <input type="text" id="password" placeholder="设置6位以上数字和字母密码" v-model="pwd.val"/>
-          <i class="icon i-close close" @click='close' 
+          <input type="text" id="password" 
+          placeholder="设置6位以上数字和字母密码" 
+          v-model="pwd.val" v-on:blur='check(pwd)'/>
+          <i class="icon i-close close" @click='close'
           v-show='pwd.val'></i>
           <div class="pwd-iswatch">
             <i class="icon i-password" v-if='isWatch' @click='toggle'></i>
@@ -14,13 +16,14 @@
         </div>
     </div>
     <div class="btn">
-      <input type="button" class="next" value="下一步" @click='next'/>
+      <input type="button" class="next" :class='this.tip ? "can" : ""'
+       value="下一步" @click='next'/>
     </div>
     <div class="agreement">注册登录代表同意用户协议</div>
   </div>
 </template>
 <script>
-  // import validate from './validate.js'
+  import validate from './validate.js'
   import { mapActions } from 'vuex'
   export default {
     name: 'setpassword',
@@ -30,11 +33,17 @@
           name: '密码',
           val: ''
         },
-        tip: '',
         isWatch: true
       }
     },
     computed: {
+      tip: function () {
+        if (validate(this.pwd)) {
+          return true
+        } else {
+          return false
+        }
+      }
     },
     mounted () {
     },
@@ -43,10 +52,23 @@
       close () {
         this.pwd.val = ''
       },
+      check (data) {
+        if (!validate(data)) {
+          this.setTip({
+            text: '密码格式不正确'
+          })
+          this.tip = false
+          return
+        } else {
+          this.tip = true
+        }
+      },
       next () {
-        this.$router.push({
-          name: 'personal'
-        })
+        if (validate(this.pwd)) {
+          this.$router.push({
+            name: 'pdata'
+          })
+        }
       },
       toggle () {
         let pwdInput = document.getElementById('password')

@@ -6,7 +6,7 @@ let register = (data) => {
     return (!data.val || data.val && data.val.length === 4)
   }
   if (data.name === '密码') {
-    return /([\w\d][^\-_]){6,}/.test(data.val)
+    return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6}$/.test(data.val)
   }
 }
 export default register

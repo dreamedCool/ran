@@ -27,6 +27,27 @@
     background-image: url('../../../../static/portrait.jpg');
     background-size: cover;
     margin: 1/75rem;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: none;
+    }
+    label {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+    }
+    #upload-file {
+      display: none;
+    }
   }
   .take-photo {
     width: 64/75rem;
@@ -55,4 +76,41 @@
 }
 .font-color {
   color: #919191;
+}
+.user-sex {
+  display: inline-block;
+  width: 22/75rem;
+  height: 22/75rem;
+  border-radius: 11/75rem;
+  border: solid 1/75rem #d2d2d2;
+  margin-right: 10/75rem;
+}
+.sex-icon {
+  height: 32/75rem;
+  display: flex;
+  align-items: center;
+}
+.i-girl {
+  font-size: 32/75rem;
+  color: #F73F7D;
+  margin-right: 54/75rem;
+}
+.i-boy {
+  font-size: 32/75rem;
+  color: lightskyblue;
+}
+.btn {
+  width: 10rem;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80/75rem;
+}
+.submit {
+  width: 500/75rem;
+  height: 80/75rem;
+  background: #f84444;
+  border-radius: 35/75rem;
+  text-align: center;
+  line-height: 80/75rem;
+  color: #fff;
 }

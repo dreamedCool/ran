@@ -19,16 +19,22 @@
       <div class="name">
         <label>昵称</label>
         <div>
-          <span class="font-color">专属用户名，会令你与众不同</span>
-          <i class="icon i-more"></i>
+          <span class="font-color">{{name}}</span>
+            <i class="icon i-more"></i>
         </div>
       </div>
 
       <div class="sex">
         <label>性别</label>
         <div class="sex-icon">
-          <span class="user-sex"></span> <i class="icon i-girl"></i>
-          <span class="user-sex"></span><i class="icon i-boy"></i>
+          <div class="user-sex" @click='setSex(1)'>
+            <div :class="on===1 ? 'active' : ''"></div>
+          </div>
+          <i class="icon i-girl"></i>
+          <div class="user-sex" @click='setSex(0)'>
+            <div :class="on===0 ? 'active' : ''"></div>
+          </div>
+          <i class="icon i-boy"></i>
         </div>
       </div>
 
@@ -59,22 +65,32 @@
         <div class="submit">保存</div>
       </div>
     </div>
+    <City></City>
   </div>
 </template>
 <script>
+  import City from './child/city'
   export default {
     name: 'userData',
     data () {
       return {
-        dataUrl: ''
+        dataUrl: '',
+        name: '专属用户名，会令你与众不同',
+        on: 1, // 是否选中
+        sex: 1, // 女
+        address: '',
+        birth: '',
+        sign: ''
       }
     },
+    components: {
+      City
+    },
     methods: {
-      upload (e) {
+      upload (e) { // 上传图片
         let self = this
         let fileType = ['image/jpeg', 'image/jpg', 'image/png']
         let file = e.target.files[0]
-        console.log(file)
         if (file && file.type.indexOf(fileType)) {
           let reader = new FileReader()
           reader.readAsDataURL(file)
@@ -82,6 +98,9 @@
             self.dataUrl = this.result
           }
         }
+      },
+      setSex (sex) {
+        this.on = sex
       }
     }
   }

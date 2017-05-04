@@ -65,11 +65,11 @@
         <div class="submit">保存</div>
       </div>
     </div>
-    <City></City>
+    <Dates></Dates>
   </div>
 </template>
 <script>
-  import City from './child/city'
+  import Dates from './child/date'
   export default {
     name: 'userData',
     data () {
@@ -84,7 +84,7 @@
       }
     },
     components: {
-      City
+      Dates
     },
     methods: {
       upload (e) { // 上传图片

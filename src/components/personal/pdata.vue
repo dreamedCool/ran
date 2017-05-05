@@ -50,7 +50,7 @@
         <label>生日</label>
         <div>
           <span class="font-color">1980-01-01</span>
-          <i class="icon i-more"></i>
+          <i class="icon i-more" @click='showBirth'></i>
         </div>
       </div>
 
@@ -58,14 +58,16 @@
         <label>个性签名</label>
         <div>
           <span class="font-color">编辑个性签名</span>
-          <i class="icon i-more"></i>
+          <router-link :to='{path: "/sign"}'>
+            <i class="icon i-more"></i>
+          </router-link>
         </div>
       </div>
       <div class="btn">
         <div class="submit">保存</div>
       </div>
     </div>
-    <Dates></Dates>
+    <Dates :initBirth='initBirth' v-on:cancel='toCancel'></Dates>
   </div>
 </template>
 <script>
@@ -80,7 +82,8 @@
         sex: 1, // 女
         address: '',
         birth: '',
-        sign: ''
+        sign: '',
+        initBirth: false
       }
     },
     components: {
@@ -101,6 +104,12 @@
       },
       setSex (sex) {
         this.on = sex
+      },
+      showBirth () {
+        this.initBirth = true
+      },
+      toCancel () {
+        this.initBirth = false
       }
     }
   }

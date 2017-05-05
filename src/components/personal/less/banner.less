@@ -1,47 +1,54 @@
 .container {
   width: 10rem;
-  height: 532/75rem;
-  background: pink;
+  height: 640/75rem;
+  background-image: url('/static/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   position: relative;
 }
-.back {
-  position: absolute;
-  top: 24/75rem;
-  left: 34/75rem;
-  width: 56/75rem;
-  height: 56/75rem;
-  border-radius: 28/75rem;
-  background: #000;
-  opacity: 0.6;
-  text-align: center;
-  line-height: 56/75rem;
-  .icon {
-    color: #fff;
-    font-size: 32/75rem;
-  }
-}
-.person-info {
-  position: absolute;
-  top: 214/75rem;
-  left: 48/75rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.portrait {
-  width: 112/75rem;
-  height: 112/75rem;
-  border-radius: 56/75rem;
-  background-size: 112/75rem;
-}
-.name {
-  height: 112/75rem;
+.i-warn, .i-set {
   color: #fff;
-  margin-left: 10/75rem;
+  font-size: 48/75rem;
+  position: absolute;
+  top: 28/75rem;
+}
+.i-warn {
+  right: 116/75rem;
+}
+.i-set {
+  right: 30/75rem;
+}
+.detail-info {
+  padding-top: 76/75rem;
+  width: 10rem;
+  height: 560/75rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+}
+.portait {
+  width: 128/75rem;
+  height: 128/75rem;
+  border-radius: 64/75rem;
+  background: url('/static/portait.png') no-repeat;
+  background-size: 100% 100%;
+}
+.option {
+  width: 5rem;
+  display: flex;
   justify-content: space-around;
 }
-.person-name {
-  font-size: 40/75rem;
+.data-set {
+  width: 152/75rem;
+  height: 52/75rem;
+  border: solid 1/75rem #fff;
+  text-align: center;
+  line-height: 52/75rem;
+  border-radius: 0.3333rem;
+  font-size: 22/75rem;
+  .i-more {
+    font-size: 22/75rem;
+  }
 }

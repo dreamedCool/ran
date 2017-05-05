@@ -1,18 +1,18 @@
 <style lang="less" src='../less/banner.less'></style>
 <template>
   <div class="container">
-    <div class="back">
-      <i class="icon i-back"></i>
-    </div>
-    <div class="person-info">
-      <div class="portrait" :style="{backgroundImage: 'url('+personInfo.portrait+')'}">
+    <i class="icon i-warn"></i>
+    <i class="icon i-set"></i>
+    <div class="detail-info">
+      <div class="portait"></div>
+      <p>编辑你的资料</p>
+      <div class="option">
+        <span>关注 0</span> |
+        <span>粉丝 0</span> |
+        <span>赞 0</span>
       </div>
-      <div class="name">
-        <div class="person-name">{{personInfo.name}}</div>
-        <div class="person-address">
-          <i class="icon i-location"></i>
-          <span>{{personInfo.address}}</span>
-        </div>
+      <div class="data-set">
+        资料设置<i class="icon i-more"></i>
       </div>
     </div>
   </div>
@@ -22,16 +22,10 @@
     name: 'banner',
     data () {
       return {
-        personInfo: {
-          bgUrl: '',
-          portrait: 'static/head.jpg',
-          name: 'Erikkk',
-          address: '北京，朝阳'
-        }
       }
     },
     mounted () {
-      this.getAjax()
+      // this.getAjax()
     },
     methods: {
       getAjax () {

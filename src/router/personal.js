@@ -48,7 +48,7 @@ export default [
         require: false
       },
       footer: {
-        require: false
+        require: true
       }
     }
   }

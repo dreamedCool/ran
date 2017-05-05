@@ -1,4 +1,4 @@
-<style lang="less" src='../less/banner.less'></style>
+<style lang="less" src='../less/banner.less' scoped></style>
 <template>
   <div class="container">
     <i class="icon i-warn"></i>

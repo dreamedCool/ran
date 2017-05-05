@@ -19,7 +19,7 @@
       <div class="name">
         <label>昵称</label>
         <div>
-          <span class="font-color">{{name}}</span>
+          <input class="font-color aligs" v-model="name" placeholder="专属用户名，会令你与众不同"/>
             <i class="icon i-more"></i>
         </div>
       </div>
@@ -41,7 +41,7 @@
       <div class="address">
         <label>地址</label>
         <div>
-          <span class="font-color">选择您所在城市</span>
+          <span class="font-color">{{address}}</span>
           <i class="icon i-more"></i>
         </div>
       </div>
@@ -49,7 +49,7 @@
       <div class="birth">
         <label>生日</label>
         <div>
-          <span class="font-color">1980-01-01</span>
+          <span class="font-color">{{birth}}</span>
           <i class="icon i-more" @click='showBirth'></i>
         </div>
       </div>
@@ -57,14 +57,14 @@
       <div class="sign">
         <label>个性签名</label>
         <div>
-          <span class="font-color">编辑个性签名</span>
+          <span class="font-color">{{sign}}</span>
           <router-link :to='{path: "/sign"}'>
             <i class="icon i-more"></i>
           </router-link>
         </div>
       </div>
       <div class="btn">
-        <div class="submit">保存</div>
+        <div class="submit" @click='save'>保存</div>
       </div>
     </div>
     <Dates :initBirth='initBirth' v-on:cancel='toCancel'></Dates>
@@ -77,17 +77,24 @@
     data () {
       return {
         dataUrl: '',
-        name: '专属用户名，会令你与众不同',
+        name: '',
         on: 1, // 是否选中
         sex: 1, // 女
-        address: '',
-        birth: '',
-        sign: '',
+        address: '北京',
+        birth: '1992-03-28',
+        sign: '编辑个性签名',
         initBirth: false
       }
     },
     components: {
       Dates
+    },
+    computed: {
+    },
+    mounted () {
+      if (this.$route.query.message) {
+        this.sign = this.$route.query.message
+      }
     },
     methods: {
       upload (e) { // 上传图片
@@ -110,6 +117,11 @@
       },
       toCancel () {
         this.initBirth = false
+      },
+      save () {
+        this.$router.push({
+          name: 'personal'
+        })
       }
     }
   }

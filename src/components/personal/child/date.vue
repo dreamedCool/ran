@@ -3,7 +3,25 @@
   <div v-show='birth'>
     <div class="mask">
     </div>
-    <div class="city-wrapper">
+    <div class="picker-panel">
+        <div class="box-day">
+          <div class="check-line"></div>
+          <div class="day-checked">
+              <div class="day-list">
+                  <div class="list-div"  v-for="day in renderListDay">
+                    {{day}}
+                  </div>
+              </div>
+          </div>
+          <div class="day-wheel">
+              <div class="wheel-div" v-for="day in renderListDay" 
+              style="transform: rotate3d(1, 0, 0, 80deg); translate3d(0px, 0px, 2.5rem);">
+              {{day}}
+              </div>
+          </div>
+        </div>
+      </div>
+    <!--<div class="city-wrapper">
       <div class="option">
         <div class="cancel" @click='cancel'>取消</div>
         <div class="confirm">确定</div>
@@ -15,7 +33,7 @@
           <div class="day"><time v-for='item in dateList.day'>{{item}}日</time></div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 <script>
@@ -26,7 +44,8 @@
       return {
         year: [],
         month: [],
-        day: []
+        day: [],
+        renderListDay: [23, 24, 25, 26, 27, 28, 29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
       }
     },
     computed: {

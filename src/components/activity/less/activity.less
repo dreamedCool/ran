@@ -1,4 +1,156 @@
 .container {
   width: 10rem;
-  height: 100%;
+  padding-bottom: 98/75rem;
+}
+.nav {
+  display: flex;
+  margin: 10/75rem 0;
+  text-align: center;
+  background-color: #fff;
+  .nav-item {
+    flex: 1;
+    justify-content: center;
+  }
+  .hot,.history {
+    display: inline-block;
+    width: 136/75rem;
+    height: 140/75rem;
+    background-size: 136/75rem 140/75rem;
+  }
+  .hot {
+    background-image: url('/static/images/activity/event_hot_not_select_bottom@2x.png');
+  }
+  .hot.active {
+    background-image: url('/static/images/activity/event_hot_select_bottom@2x.png');
+  }
+  .history {
+    background-image: url('/static/images/activity/event_history_not_select_bottom@2x.png');
+  }
+  .history.active {
+    background-image: url('/static/images/activity/event_history_select_bottom@2x.png');
+  }
+}
+.list-item {
+  .top {
+    position: relative;
+    height: 116.4/75rem;
+    background-color: #fff;
+    .timer-wrapper {
+      position: absolute;
+      left: 48/75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      .date {
+        display: block;
+        border-bottom: 1/75rem solid #303030;
+        text-align: center;
+        font-size: 40/75rem;
+        color: #303030;
+      }
+      .time {
+        font-size: 20/75rem;
+        line-height: 22/75rem;
+      }
+    }
+    .button-wrapper {
+      position: absolute;
+      right: 32/75rem;
+      top: 50/75rem;
+      .btn-remind {
+        width: 116/75rem;
+        height: 42/75rem;
+        line-height: 42/75rem;
+        text-align: center;
+        border: 1/75rem solid #ff4949;
+        border-radius: 24/75rem;
+        color: #ff4949;
+      }
+    }
+  }
+  .main-img {
+    width: 10rem;
+    img {
+      width: 100%;
+      height: 779.6/75rem;
+    }
+  }
+  .info-wrapper {
+    width: 100%;
+    height: 230/75rem;
+    margin-bottom: 12/75rem;
+    .info-top {
+      position: relative;
+      height: 147/75rem;
+      background-color: #fff;
+      .main {
+        padding: 32/75rem 0 32/75rem 48/75rem;
+        .avator {
+          display: inline-block;
+          img{
+            width: 84/75rem;
+            height: 84/75rem;
+            border-radius: 50%;
+          }
+        }
+        .tit-wrapper {
+          display: inline-block;
+          padding-left: 24/75rem;
+          .title {
+            padding-bottom: 12/75rem;
+            color: #181818;
+            font-size: 40/75rem;
+            .tip {
+              display: inline-block;
+              vertical-align: top;
+              margin-left: 32/75rem;
+              padding: 4/75rem 8/75rem;
+              border-radius: 24/75rem;
+              font-size: 20/75rem;
+              color: #fff;
+              background-color: #525151;
+            }
+          }
+          .teacher {
+            font-size: 24/75rem;
+          }
+          
+        }
+      }
+      .store {
+        position: absolute;
+        right: 48/75rem;
+        top: 42.4/75rem;
+        .i-store {
+          font-size: 44/75rem;
+          color: #ff5f5f;
+        }
+      }
+    }
+    .info-bottom {
+      position: relative;
+      height: 83/75rem;
+      margin-top: 1/75rem;
+      background-color: #fff;
+      .addr-msg {
+        line-height: 83/75rem;
+        padding-left: 48/75rem;
+        color: #616161;
+        font-size: 24/75rem;
+        .address {
+          padding-left: 8/75rem;
+          &:after {
+            content: '|';
+            padding: 0 16/75rem;
+          }
+        }
+      }
+      .price {
+        position: absolute;
+        right: 48/75rem;
+        top: 22/75rem;
+        font-size: 36/75rem;
+        color: #ff3366;
+      }
+    }
+  }
 }

@@ -2,7 +2,7 @@
   .wrap {
     width: 10rem;
     height: 100%;
-    background: #fff;
+    //background: #fff;
     margin-bottom: 200/75rem;
   }
   .tab {
@@ -76,7 +76,10 @@
       <span>分享有礼</span><i class="icon i-more"></i>
     </div>
     <div class="mine-mores">
-      <span>反馈与建议</span><i class="icon i-more"></i>
+      <span>反馈与建议</span>
+      <router-link :to='{name: "feedback"}'>
+        <i class="icon i-more"></i>
+      </router-link>
     </div>
     <div class="mine-mores">
       <span>评价我们</span><i class="icon i-more"></i>

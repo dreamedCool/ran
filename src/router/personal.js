@@ -51,5 +51,25 @@ export default [
         require: true
       }
     }
+  },
+  {
+    path: '/feedback',
+    name: 'feedback',
+    component: (resolve) => require(['../components/personal/feedback.vue'], resolve),
+    meta: {
+      header: {
+        require: true,
+        title: '反馈&建议',
+        back: {
+          visible: true
+        },
+        btn: {
+          visible: false
+        }
+      },
+      footer: {
+        require: false
+      }
+    }
   }
 ]

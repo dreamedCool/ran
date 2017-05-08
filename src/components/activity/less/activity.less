@@ -84,6 +84,7 @@
       background-color: #fff;
       .main {
         padding: 32/75rem 0 32/75rem 48/75rem;
+        white-space: nowrap;
         .avator {
           display: inline-block;
           img{
@@ -94,20 +95,31 @@
         }
         .tit-wrapper {
           display: inline-block;
+          width: 100%;
           padding-left: 24/75rem;
           .title {
             padding-bottom: 12/75rem;
-            color: #181818;
-            font-size: 40/75rem;
+            .topic {
+              display: inline-block;
+              max-width: 50%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: #181818;
+              font-size: 40/75rem;
+            }
             .tip {
               display: inline-block;
               vertical-align: top;
-              margin-left: 32/75rem;
-              padding: 4/75rem 8/75rem;
-              border-radius: 24/75rem;
+              margin-left: 24/75rem;
+              padding: 6/75rem 16/75rem;
+              border-radius: 28/75rem;
               font-size: 20/75rem;
               color: #fff;
-              background-color: #525151;
+              background-color: #FF5F5F;
+              &.full{
+                background-color: #525151;
+              }
             }
           }
           .teacher {
@@ -132,8 +144,12 @@
       margin-top: 1/75rem;
       background-color: #fff;
       .addr-msg {
+        max-width: 596/75rem;
         line-height: 83/75rem;
         padding-left: 48/75rem;
+        white-space: nowrap;        
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: #616161;
         font-size: 24/75rem;
         .address {

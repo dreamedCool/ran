@@ -10,7 +10,7 @@
         <div class="history" :class="{active:!isHotMenu}" @click="toggleMenu(false)"></div>
       </div>
     </div>
-    <div class="list-wrapper" v-show="isHotMenu">
+    <div class="hotList-wrapper" v-show="isHotMenu">
       <div class="list-item" v-for="item in hotList">
         <div class="top">
           <div class="timer-wrapper">
@@ -53,7 +53,39 @@
         </div>
       </div>
     </div>
-    <div style="height: 500px; background: red;" v-show="!isHotMenu">
+    <div class="historyList-wrapper" v-show="!isHotMenu">
+      <div class="list-item" v-for="item in historyList">
+        <div class="main-photo">
+          <img :src="item.photo.url">
+        </div>
+        <div class="detail-message">
+          <div class="topic">{{item.topic}}</div>
+          <div class="teacher">艺术家：{{item.teacher.name}}</div>
+          <div class="msg">
+            <div class="location">
+              <i class="icon i-location"></i>
+              <span>{{item.location.name}}</span>
+            </div>
+            <div class="time">
+              <i class="icon i-date"></i>
+              <span>2017.2.2 10：00~12：00</span>
+            </div>
+          </div>
+          <div class="artTime">
+            <div class="artTit">燃时刻</div>
+            <ul class="imgList">
+              <li><img src="static/activityImg.png"></li>
+              <li><img src="static/activityImg.png"></li>
+              <li><img src="static/activityImg.png"></li>
+              <li class="more">
+                <img src="static/activityImg.png">
+                <span>查看更多</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </div>
 </template>

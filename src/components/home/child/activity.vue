@@ -13,7 +13,9 @@
       v-for='item in life' :style="{backgroundImage: 'url('+item.url+')'}">
         <span class="life-detail-name">{{item.name}}</span>
         <span class="life-detail-english">{{item.englishName}}</span>
-        <i class="icon i-store life-detail-store"></i>
+        <div class="life-detail-store">
+          <Collection></Collection>
+        </div>
         <span class="pic-name">{{item.picName}}</span>
         <em class="pic-price">￥{{item.price}}</em>
         <div class="pic-date">
@@ -29,6 +31,7 @@
   </div>
 </template>
 <script>
+  import Collection from '../../common/collection/collection'
   export default {
     name: 'activity',
     data () {
@@ -56,6 +59,9 @@
           }
         ]
       }
+    },
+    components: {
+      Collection
     }
   }
 </script>

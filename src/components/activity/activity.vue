@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="store">
-              <i class="icon i-store"></i>
+              <Collection></Collection>
             </div>
           </div>
           <div class="info-bottom">
@@ -59,6 +59,9 @@
           <img :src="item.photo.url">
         </div>
         <div class="detail-message">
+          <div class="store">
+            <Collection></Collection>
+          </div>
           <div class="topic">{{item.topic}}</div>
           <div class="teacher">艺术家：{{item.teacher.name}}</div>
           <div class="msg">
@@ -91,6 +94,7 @@
 </template>
 <script>
   import Banner from './child/banner'
+  import Collection from '../common/collection/collection'
   let ERR_CODE = 0
   export default {
     name: 'activity',
@@ -102,7 +106,7 @@
       }
     },
     components: {
-      Banner
+      Banner, Collection
     },
     computed: {
       tipText () {

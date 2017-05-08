@@ -1,7 +1,7 @@
 <style lang="less" src="./less/activity.less" scoped></style>
 <template>
   <div class="container">
-    <Banner></Banner>
+    <Banner :listImg="banners"></Banner>
     <div class="nav">
       <div class="nav-item">
         <div class="hot" :class="{active:isHotMenu}" @click="toggleMenu(true)"></div>
@@ -93,13 +93,24 @@
   </div>
 </template>
 <script>
-  import Banner from './child/banner'
+  import Banner from '../common/banner/banner'
   import Collection from '../common/collection/collection'
   let ERR_CODE = 0
   export default {
     name: 'activity',
     data () {
       return {
+        banners: [
+          {
+            url: 'static/banner.jpg'
+          },
+          {
+            url: 'static/bg.jpg'
+          },
+          {
+            url: 'static/activityImg.png'
+          }
+        ],
         isHotMenu: true,
         hotList: [],
         historyList: []

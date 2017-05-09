@@ -13,7 +13,6 @@ export default {
   name: 'banner',
   props: ['listImg'],
   mounted () {
-    console.log('mounted', this)
     var swiper = new Swiper('.swiper-container', {
       pagination: '.swiper-pagination',
       paginationClickable: true,

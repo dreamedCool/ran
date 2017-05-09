@@ -1,8 +1,8 @@
 <style lang="less" src='../less/date.less' scoped></style>
 <template>
-  <div v-show='birth'>
-    <div class="mask">
-    </div>
+  <div v-if='birth'>
+    <!--<div class="mask">
+    </div>-->
     <div class="picker-panel">
         <div class="box-day">
           <div class="check-line"></div>
@@ -45,7 +45,7 @@
         year: [],
         month: [],
         day: [],
-        renderListDay: [23, 24, 25, 26, 27, 28, 29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        renderListDay: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
       }
     },
     computed: {

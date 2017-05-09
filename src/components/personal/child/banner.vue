@@ -11,9 +11,11 @@
         <span>粉丝 0</span> |
         <span>赞 0</span>
       </div>
-      <div class="data-set">
-        资料设置<i class="icon i-more"></i>
-      </div>
+      <router-link :to='{name: "pdata"}'>
+        <div class="data-set">
+          资料设置<i class="icon i-more"></i>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>

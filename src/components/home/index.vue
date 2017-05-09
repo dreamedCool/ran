@@ -1,7 +1,7 @@
 <style src='./less/index.less' lang="less" scoped></style>
 <template>
     <div class="container">
-        <Banner></Banner>
+        <Banner :listImg="banners"></Banner>
         <template>
           <div class="tab">
             <div class="per-tab">
@@ -27,15 +27,29 @@
     </div>
 </template>
 <script>
-  import Banner from './child/banner'
+  import Banner from '../common/banner/banner'
   import Life from './child/activity'
   import Artist from './child/artist'
   import Topic from './child/topic'
   import Circles from './child/circles'
   export default {
-    name: 'test',
+    name: 'home',
     data () {
       return {
+        banners: [
+          {
+            url: 'static/topic.jpg'
+          },
+          {
+            url: 'static/topic2.jpg'
+          },
+          {
+            url: 'static/activityImg.png'
+          },
+          {
+            url: 'static/banner.jpg'
+          }
+        ]
       }
     },
     components: {

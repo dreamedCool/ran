@@ -10,7 +10,7 @@
         <div class="btn-remind">空位提醒</div>
       </div>
     </div>
-    <div class="main-img">
+    <div class="main-img" @click="getActivityDetail(item, $event)">
       <img :src="item.photo.url">
     </div>
     <div class="info-wrapper">
@@ -49,7 +49,8 @@
     name: 'recommend',
     data () {
       return {
-        hotList: []
+        hotList: [],
+        selectedActivity: {}
       }
     },
     components: {
@@ -66,6 +67,19 @@
             this.hotList = resData.data
           }
         })
+      },
+      getActivityDetail (activity, event) {
+        console.log('子组件接收到点击事件')
+        this.$http.get('/lw/events/' + activity.id).then(res => {
+          let resData = res.body
+          if (resData.errorCode === 0) {
+            this.selectedActivity = resData.data
+          }
+        })
+        // 向父组件通信
+        this.$emit('getActivityDetail', this.selectedActivity)
+        // this.$refs.detail.show()
+        // this.selectedFood = food
       }
     }
   }

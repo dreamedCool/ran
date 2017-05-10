@@ -1,7 +1,7 @@
 <template>
   <div class="historyList-wrapper">
     <div class="list-item" v-for="item in historyList">
-      <div class="main-photo">
+      <div class="main-photo" @click="getActivityDetail(item, $event)">
         <img :src="item.photo.url">
       </div>
       <div class="detail-message">
@@ -59,6 +59,16 @@
             this.historyList = resData.data.list
           }
         })
+      },
+      getActivityDetail (activity, event) {
+        this.$http.get('/lw/events/' + activity.id).then(res => {
+          let resData = res.body
+          if (resData.errorCode === 0) {
+            this.selectedActivity = resData.data
+          }
+        })
+        // 向父组件activity.vue通信
+        this.$emit('getActivityDetail', this.selectedActivity, 2)
       }
     }
   }

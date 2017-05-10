@@ -11,16 +11,16 @@
         <div class="history" :class="{active:!isHotMenu}" @click="toggleMenu(false)"></div>
       </div>
     </div>
-    <Recommend v-show="isHotMenu"></Recommend>
-    <History v-show="!isHotMenu"></History>
+    <!-- @getActivityDetail 接受来自子组件的方法-->
+    <Newest v-show="isHotMenu" @getActivityDetail="getActivityDetail"></Newest>
+    <History v-show="!isHotMenu" @getActivityDetail="getActivityDetail"></History>
   </div>
-  <!-- 活动详情页 @getActivityDetail 接受来自子组件的方法-->
-  <Detail @getActivityDetail="getActivityDetail" :activity="selectedActivity" ref="detail"></Detail>
+  <Detail ref="detail" :activity="selectedActivity" :sourceType="sourceType"></Detail>
 </div>
 </template>
 <script>
   import Banner from '../common/banner/banner'
-  import Recommend from './child/recommend'
+  import Newest from './child/newest'
   import History from './child/history'
   import Detail from './child/detail'
   export default {
@@ -39,18 +39,20 @@
           }
         ],
         isHotMenu: true,
-        selectedActivity: {}
+        selectedActivity: {},
+        sourceType: 1
       }
     },
     components: {
-      Banner, Recommend, History, Detail
+      Banner, Newest, History, Detail
     },
     methods: {
       toggleMenu (param) {
         this.isHotMenu = param
       },
-      getActivityDetail (activity) {
-        console.log('父组件监听到了来自子组件的事件')
+      getActivityDetail (activity, type) {
+        this.sourceType = type
+        this.showFlag = !this.showFlag
         this.$refs.detail.show()
         this.selectedActivity = activity
       }

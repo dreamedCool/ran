@@ -69,17 +69,14 @@
         })
       },
       getActivityDetail (activity, event) {
-        console.log('子组件接收到点击事件')
         this.$http.get('/lw/events/' + activity.id).then(res => {
           let resData = res.body
           if (resData.errorCode === 0) {
             this.selectedActivity = resData.data
           }
         })
-        // 向父组件通信
-        this.$emit('getActivityDetail', this.selectedActivity)
-        // this.$refs.detail.show()
-        // this.selectedFood = food
+        // 向父组件activity.vue通信
+        this.$emit('getActivityDetail', this.selectedActivity, 1)
       }
     }
   }
@@ -140,6 +137,7 @@
       .main {
         padding: 32/75rem 0 32/75rem 48/75rem;
         white-space: nowrap;
+        overflow: hidden;
         .avator {
           display: inline-block;
           img{

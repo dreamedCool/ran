@@ -23,6 +23,19 @@ const router = new Router({
       }
     },
     {
+      path: '/test',
+      name: 'test',
+      component: (resolve) => require(['../components/test/test.vue'], resolve),
+      meta: {
+        header: {
+          require: false
+        },
+        footer: {
+          require: false
+        }
+      }
+    },
+    {
       path: '/',
       redirect: '/index'
     },

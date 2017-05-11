@@ -1,24 +1,33 @@
 .bg{
   width: 650/75rem;
-  height: 650/75rem;
+  height: 600/75rem;
   margin: 0 auto;
-  background: url('/static/test/turntable-bg.jpg') no-repeat;
-  background-size: cover;
+  background: url(/static/test/turntable-bg.jpg) no-repeat;
   position: relative;
  }
  .pointer{
+    width: 224/75rem;
+    height: 174/75rem;
     position: absolute;
     z-index: 10;
-    top: 165/75rem;
-    left: 280/75rem;
-    //transform: rotate(0deg)
+    top: 213/75rem;
+    left: 251/75rem;
  }
  .turntable{
-    width: 500/75rem;
-    height: 500/75rem;
+    width: 450/75rem;
+    height: 450/75rem;
     position: absolute;
     z-index: 5;
     top: 60/75rem;
     left: 116/75rem;
-    transition: all 4s;
+    transition: all 4s ease-out;
+ }
+ .button {
+   width: 200/75rem;
+   height: 100/75rem;
+   text-align: center;
+   line-height: 100/75rem;
+   margin-left: 275/75rem;
+   margin-top: 100/75rem;
+   background: pink;
  }

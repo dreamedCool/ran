@@ -15,7 +15,6 @@ li{ list-style:none; }
 }
 .container ul{ 
   position:relative;
-  transition: all 1s; 
 }
 .container li{
   height: 88/75rem; 
@@ -27,7 +26,9 @@ li{ list-style:none; }
   <div class="container">
     <div class="li-box">
       <ul ref='wrapper'>
+        <li>{{titles[titles.length - 1]}}</li>
         <li v-for="title in titles" v-if='state'>{{title}}</li>
+        <li>{{titles[0]}}</li>
       </ul>
     </div>
   </div>
@@ -36,7 +37,7 @@ li{ list-style:none; }
   export default {
     data () {
       return {
-        titles: ['飞鲨', '勇', '曾驾歼-8'],
+        titles: ['飞鲨', '勇', '曾驾歼-8', '222222', '333', '444444'],
         num: 0,
         state: true,
         timer: null
@@ -49,12 +50,17 @@ li{ list-style:none; }
       initScroll () {
         this.timer = setInterval(() => {
           this.scroll()
-        }, 1000)
+        }, 3000)
       },
       scroll () {
         ++this.num
         if (this.num > this.titles.length) {
           this.num = 0
+        }
+        if (this.num === 0) {
+          this.$refs.wrapper.style.transition = 'all 0s'
+        } else {
+          this.$refs.wrapper.style.transition = 'all 400ms ease-out'
         }
         this.$refs.wrapper.style.transform = 'translateY(' + (-88 * this.num) / 75 + 'rem)'
       }

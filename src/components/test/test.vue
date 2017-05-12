@@ -4,7 +4,7 @@
     <Mytitle></Mytitle>
     <div class="bg">
       <img src="/static/test/pointer.png" class="pointer">
-      <img src="/static/test/turntable.png" alt="turntable" class="turntable">
+      <img src="/static/test/turntable.png" class="turntable" ref='turntable'>
     </div>
     <div class="button" @click="turn">点击</div>
   </div>
@@ -16,7 +16,6 @@
       return {
         cat: 51.4, // 每格的度数
         deg: 0, // 转动的初始度数,
-        olddeg: 0,
         offOn: true
       }
     },

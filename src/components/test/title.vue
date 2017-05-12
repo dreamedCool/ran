@@ -37,20 +37,22 @@ li{ list-style:none; }
   export default {
     data () {
       return {
-        titles: ['飞鲨', '勇', '曾驾歼-8', '222222', '333', '444444'],
+        titles: [],
+        test: ['飞鲨', '勇', '曾驾歼-8', '222222', '333', '444444'],
         num: 0,
         state: true,
         timer: null
       }
     },
     mounted () {
+      this.titles = this.test
       this.initScroll()
     },
     methods: {
       initScroll () {
         this.timer = setInterval(() => {
           this.scroll()
-        }, 3000)
+        }, 2000)
       },
       scroll () {
         ++this.num

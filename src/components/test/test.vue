@@ -16,7 +16,8 @@
       return {
         cat: 51.4, // 每格的度数
         deg: 0, // 转动的初始度数,
-        offOn: true
+        offOn: true,
+        num: 0
       }
     },
     components: {Mytitle},
@@ -30,10 +31,14 @@
       ratating () {
         this.offOn = !this.offOn
         let oTurntable = document.getElementsByTagName('img')[1]
-        this.deg = Math.floor(Math.random() * 3600)
+        this.deg = 810 - 51.4
+        this.num = this.deg % 360
+        console.log(this.num)
         oTurntable.style.transform = 'rotate(' + this.deg + 'deg)'
         setTimeout(() => {
-          alert(1)
+          switch (this.num) {
+            // case
+          }
         }, 4000)
       }
     }

@@ -5,6 +5,7 @@ import store from '../store/store'
 import Activity from './activity'
 import User from './user'
 import Personal from './personal'
+import Test from './test'
 Vue.use(Router)
 
 const router = new Router({
@@ -23,25 +24,13 @@ const router = new Router({
       }
     },
     {
-      path: '/test',
-      name: 'test',
-      component: (resolve) => require(['../components/test/test.vue'], resolve),
-      meta: {
-        header: {
-          require: false
-        },
-        footer: {
-          require: false
-        }
-      }
-    },
-    {
       path: '/',
       redirect: '/index'
     },
     ...Activity,
     ...User,
-    ...Personal
+    ...Personal,
+    ...Test
   ]
 })
 router.afterEach((route) => {

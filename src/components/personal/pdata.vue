@@ -49,7 +49,8 @@
       <div class="birth">
         <label>生日</label>
         <div>
-          <span class="font-color">{{birth}}</span>
+          <input type="date" v-model='birth' class=" font-color aligs"
+          placeholder="请输入您的生日"/>
           <i class="icon i-more" @click='showBirth'></i>
         </div>
       </div>
@@ -67,11 +68,9 @@
         <div class="submit" @click='save'>保存</div>
       </div>
     </div>
-    <Dates :initBirth='initBirth' v-on:cancel='toCancel'></Dates>
   </div>
 </template>
 <script>
-  import Dates from './child/date'
   export default {
     name: 'userData',
     data () {
@@ -80,14 +79,13 @@
         name: '',
         on: 1, // 是否选中
         sex: 1, // 女
-        address: '北京',
-        birth: '1992-03-28',
+        address: '',
+        birth: '',
         sign: '编辑个性签名',
         initBirth: false
       }
     },
     components: {
-      Dates
     },
     computed: {
     },
